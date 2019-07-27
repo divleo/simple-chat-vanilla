@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Simple Chat</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap&subset=cyrillic-ext" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<header class="main-header">
+		<h1>Simple Chat</h1>
+	</header>
+
+	<main class="container">
+		<section class="user-section">
+			<input class="user-input" type="text">
+			<button class="user-btn-change" type="button">Change username</button>
+		</section>
+
+		<section class="chat-room">
+
+		</section>
+
+		<section class="message-section">
+			<input class="message-input" type="text">
+			<button class="message-btn-send" type="button">Send</button>
+		</section>
+	</main>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script> -->
+	<script src="chat.js"></script>
+</body>
+
+</html>
