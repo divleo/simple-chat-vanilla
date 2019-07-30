@@ -9,18 +9,64 @@ const userInput = document.querySelector('.user-input'),
 			chatRoom = document.querySelector('.chat-room'),
 			typing = document.querySelector('.typing');
 
-//emit a username
+// const allInputs = () => {
+// 	if (messageInput.value !== '') {
+// 	socket.emit('new_message', {messageInput : messageInput.value});
+// 	messageInput.value = '';
+// 	} else if (userInput.value !== '') {
+// 		socket.emit('change_username', {userInput : userInput.value});
+// 	userInput.value = '';
+// 	}
+// }
+
+// change user if input isn't empty
+const userInputCheck = () => {
+	if (userInput.value !== '') {
+		socket.emit('change_username', {userInput : userInput.value});
+		userInput.value = '';
+	}
+}
+
+// send message if input isn't empty
+const messageInputCheck = () => {
+	if (messageInput.value !== '') {
+		socket.emit('new_message', {messageInput : messageInput.value});
+		messageInput.value = '';
+	}
+}
+
+//emit a username (click)
 userBtnChange.addEventListener('click', () => {
 	//console.log(userInput.value);
-	socket.emit('change_username', {userInput : userInput.value});
-	userInput.value = '';
+	// socket.emit('change_username', {userInput : userInput.value});
+	// userInput.value = '';
+	userInputCheck();
 });
 
-//emit a message
+//emit a username (enter)
+userInput.addEventListener('keypress', (event) => {
+	if (event.which == 13 || event.keyCode == 13) {
+		userInputCheck();
+	}
+});
+
+//emit a message (click)
 messageBtnSend.addEventListener('click', () => {
 	//console.log(messageInput.value);
-	socket.emit('new_message', {messageInput : messageInput.value});
-	messageInput.value = '';
+	// socket.emit('new_message', {messageInput : messageInput.value});
+	// messageInput.value = '';
+	messageInputCheck();
+});
+
+//emit a message (enter)
+messageInput.addEventListener('keypress', (event) => {
+	if (event.which == 13 || event.keyCode == 13) {
+		// socket.emit('new_message', {messageInput : messageInput.value});
+		// messageInput.value = '';
+		messageInputCheck();
+		// return false;
+}
+// return true;
 });
 
 

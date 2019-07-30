@@ -68,6 +68,7 @@ body,
 
 input {
 	font: inherit;
+	/* font-size: 2.5vmin; */
 
 /* overflow: auto; */
 
@@ -154,3 +155,8 @@ button {
 	font-size: 2vh;
 	padding: 1vh;
 } */
+
+p.message {
+	word-wrap: break-word;
+	/* font-size: 3vmin; */
+}
