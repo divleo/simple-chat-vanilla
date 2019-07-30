@@ -4,7 +4,7 @@ const express = require('express'),
 			app = express();
 
 //set the template engine ejs
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
 //middlewares
 app.use(express.static('public'));
@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 server = app.listen(3000, '0.0.0.0');
 
 //socket.io instantiation
-const io = require("socket.io")(server);
+const io = require('socket.io')(server);
 
 
 //listen on every connection
@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
 	console.log('New user connected');
 
 	//default username
-	socket.userInput = "Anonymous";
+	socket.userInput = 'Anonymous';
 
 	//listen on change_username
 	socket.on('change_username', (data) => {
