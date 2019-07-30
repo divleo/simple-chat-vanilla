@@ -11,14 +11,14 @@ const userInput = document.querySelector('.user-input'),
 
 //emit a username
 userBtnChange.addEventListener('click', () => {
-	console.log(userInput.value);
+	//console.log(userInput.value);
 	socket.emit('change_username', {userInput : userInput.value});
 	userInput.value = '';
 });
 
 //emit a message
 messageBtnSend.addEventListener('click', () => {
-	console.log(messageInput.value);
+	//console.log(messageInput.value);
 	socket.emit('new_message', {messageInput : messageInput.value});
 	messageInput.value = '';
 });
@@ -30,7 +30,7 @@ messageBtnSend.addEventListener('click', () => {
 // let arr = [];
 
 socket.on('new_message', (data) => {
-	console.log(data);
+	//console.log(data);
 
 	// arr.push(data);
 	// console.log(arr.length);
@@ -60,18 +60,18 @@ socket.on('new_message', (data) => {
 // 	socket.emit('typing');
 // });
 
-messageInput.addEventListener('keypress', () => {
-	console.log('typing')
-	socket.emit('typing');
-});
+// messageInput.addEventListener('keypress', () => {
+// 	console.log('typing')
+// 	socket.emit('typing');
+// });
 
 //listen on typing
-socket.on('typing', (data) => {
+// socket.on('typing', (data) => {
 	// typing.html("<p><i>" + data.userInput + " is typing a message..." + "</i></p>");
-	document.getElementsByClassName('typing').innerHtml = "<p><i>" + data.userInput + " is typing a message..." + "</i></p>";
+	// document.getElementsByClassName('typing').innerHtml = "<p><i>" + data.userInput + " is typing a message..." + "</i></p>";
 	
 	// let p = document.createElement('p');
 	// p.className = 'message';
 	// p.innerHTML = data.userInput;
 	// typing.append(p);
-});
+// });

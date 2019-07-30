@@ -44,7 +44,7 @@ io.on('connection', (socket) => {
 	});
 
 	//listen on typing
-	socket.on('typing', (data) => {
-		socket.broadcast.emit('typing', {userInput : socket.userInput});
-	});
+	// socket.on('typing', (data) => {
+	// 	socket.broadcast.emit('typing', {userInput : socket.userInput});
+	// });
 });
