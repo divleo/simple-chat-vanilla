@@ -97,7 +97,9 @@ socket.on('new_message', (data) => {
 	//display our new_message
 	let p = document.createElement('p');
 	p.className = 'message';
-	p.innerHTML = data.userInput + ": " + data.messageInput;
+	// p.innerHTML = data.userInput + ": " + data.messageInput;
+	// p.innerHTML = `${data.userInput}: ${data.messageInput}`;
+	p.innerHTML = `${data.userInput}:&nbsp${data.messageInput}`;
 	chatRoom.append(p);
 });
 

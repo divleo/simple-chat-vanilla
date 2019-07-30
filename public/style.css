@@ -157,6 +157,7 @@ button {
 } */
 
 p.message {
+	/* white-space: nowrap; */
 	word-wrap: break-word;
 	/* font-size: 3vmin; */
 }
