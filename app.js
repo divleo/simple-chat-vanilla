@@ -1,15 +1,16 @@
 // 'use strict'
 
-const express = require('express'),
-			app = express();
+const express = require('express');
 
-//set the template engine ejs
+const app = express();
+
+// set the template engine ejs
 app.set('view engine', 'ejs');
 
-//middlewares
+// middlewares
 app.use(express.static('public'));
 
-//routes
+// routes
 // app.get('/', (req, res) => {
 // 	res.send('Hello world')
 // })
@@ -17,33 +18,35 @@ app.get('/', (req, res) => {
 	res.render('index');
 });
 
-//listen on port 3000
+// listen on port 3000
 // server = app.listen(3000)
 server = app.listen(3000, '0.0.0.0');
 
-//socket.io instantiation
+// socket.io instantiation
 const io = require('socket.io')(server);
 
-
-//listen on every connection
+// listen on every connection
 io.on('connection', (socket) => {
 	console.log('New user connected');
 
-	//default username
+	// default username
 	socket.userInput = 'Anonymous';
 
-	//listen on change_username
+	// listen on change_username
 	socket.on('change_username', (data) => {
 		socket.userInput = data.userInput;
 	});
 
-	//listen on new_message
+	// listen on new_message
 	socket.on('new_message', (data) => {
-		//broadcast the new message
-		io.sockets.emit('new_message', {messageInput : data.messageInput, userInput : socket.userInput});
+		// broadcast the new message
+		io.sockets.emit('new_message', {
+			messageInput: data.messageInput,
+			userInput: socket.userInput,
+		});
 	});
 
-	//listen on typing
+	// listen on typing
 	// socket.on('typing', (data) => {
 	// 	socket.broadcast.emit('typing', {userInput : socket.userInput});
 	// });
